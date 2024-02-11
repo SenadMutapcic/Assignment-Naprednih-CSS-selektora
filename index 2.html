@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Advanced CSS - Assignment 1</title>
+    <style>
+      a {
+        margin-inline: 1.25em;
+        font-size: 1.125rem;
+        text-decoration: none;
+        padding: 0.5em;
+      }
+      /* samo 3 pa moguce i ovo sve u zelenu zadnji u crvenu */
+      a:link {
+        color: green;
+      }
+
+      a:link:focus {
+        border-top: 2px solid red;
+        outline: none;
+        background-color: rgba(255, 0, 0, 0.375);
+        border-radius: 0.5em;
+      }
+      a:link:hover {
+        background-color: greenyellow;
+        border-bottom: 2px solid green;
+        border-radius: 0.5em;
+      }
+      /* zadnji link crvena */
+      a:last-of-type {
+        color: red;
+      }
+
+      /* ili spec ovako pa bilo gdje da se nalaze google link su zeleni a link-group crveni*/
+
+      /* a[href*="google.com"]{
+        color: #008000;
+      }
+
+      a[href*="link-group.eu"]{
+        color: rgb(255, 0, 0);
+      }
+
+      a:nth-child(5){
+        color: rgb(223, 17, 17);
+
+    moguce i ovako jer jedini posjeduje target atribut
+        a[target="_blank"]{
+        color: aquamarine;
+      }
+
+      a[target]{
+        color: blue;
+      }
+      } */
+
+      a:last-of-type:focus {
+        border-top: 2px solid green;
+        outline: none;
+        background-color: rgba(0, 255, 8, 0.375);
+        border-radius: 0.5em;
+      }
+      a:last-of-type:hover {
+        background-color: pink;
+        border-bottom: 2px solid red;
+        border-radius: 0.5em;
+      }
+
+      /* moguce i bez ">", ">" samo sigurnost dodatna */
+      #second-div > p:nth-child(odd) {
+        color: red;
+      }
+
+      #second-div > p:nth-child(even) {
+        color: blue;
+      }
+      /* direktni potomak > */
+      #first-div > p:nth-child(2)::after,
+      #first-div > p:nth-child(3)::after {
+        content: ' ---NEW';
+        color: yellow;
+        /* bolja preglednost dodatno*/
+        font-weight: bold;
+        background-color: black;
+        margin-inline: 1em;
+        padding-inline: 0.5em;
+      }
+
+      body > p:last-child:hover {
+        font-style: italic;
+        /* preglednost */
+        font-size: 1.25rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Main Heading</h1>
+    <p>Paragraph 1</p>
+    <a href="https://www.google.com/">Google</a>
+    <a href="https://www.google.com/doodles">Google Doodles</a>
+    <a href="https://www.link-group.eu/" target="_blank">Goto Link Group</a>
+
+    <div id="first-div">
+      <h2>Subheading</h2>
+      <p>Paragraph 2</p>
+      <p>Paragraph 3</p>
+
+      <div id="second-div">
+        <h3>Sub subheading</h3>
+        <p>Paragraph 4</p>
+        <p>Paragraph 5</p>
+        <p>Paragraph 6</p>
+        <p>Paragraph 7</p>
+        <p>Paragraph 8</p>
+      </div> <!-- closed #second-div -->
+
+    </div> <!-- closed #first-div -->
+    <p>Paragraph 9</p>
+    <p>Paragraph 10</p>
+  </body>
+</html>
